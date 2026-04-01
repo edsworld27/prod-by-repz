@@ -1,0 +1,126 @@
+.main {
+  min-height: 100vh;
+  padding-top: var(--space-28);
+  background: var(--color-surface-container-lowest);
+  padding-bottom: var(--space-20);
+}
+
+.centerContent {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.header {
+  margin-bottom: var(--space-12);
+}
+
+.heading {
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-4);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+.subheading {
+  color: var(--color-on-surface-variant);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.formWrapper {
+  text-align: left;
+  margin-bottom: var(--space-12);
+}
+
+.formCard {
+  padding: var(--space-10);
+  background: rgba(20, 20, 20, 0.4);
+  border: 1px solid rgba(224, 141, 255, 0.1);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-6);
+  gap: var(--space-2);
+}
+
+.label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.formInput, .formSelect, .formTextarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+}
+
+.formInput:focus, .formSelect:focus, .formTextarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 15px rgba(224, 141, 255, 0.1);
+}
+
+.selectWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.formSelect {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 3rem;
+}
+
+.selectArrow {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  color: var(--color-primary);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding-top: var(--space-24);
+  }
+
+  .formCard {
+    padding: var(--space-6);
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

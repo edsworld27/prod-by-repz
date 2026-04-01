@@ -1,0 +1,171 @@
+.section {
+  background: var(--color-surface-container-lowest);
+  padding: var(--space-24) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(188,0,251,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(224,141,255,0.06) 0%, transparent 50%);
+}
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-12);
+}
+
+.heading {
+  margin-top: var(--space-2);
+}
+
+.sub {
+  color: var(--color-on-surface-variant);
+  max-width: 500px;
+  text-align: center;
+}
+
+/* Perks Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-16);
+}
+
+.card {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(224,141,255,0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(188,0,251,0.1);
+}
+
+.icon {
+  font-size: 1.75rem;
+  margin-bottom: var(--space-2);
+  filter: drop-shadow(0 0 8px rgba(224,141,255,0.3));
+  display: block;
+}
+
+.cardTitle {
+  color: #ffffff;
+  font-size: 0.9375rem;
+}
+
+.cardDesc {
+  color: var(--color-on-surface-variant);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* CTA Box */
+.cta {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.ctaBox {
+  padding: var(--space-10);
+  text-align: center;
+  border-radius: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  border: 1px solid rgba(224,141,255,0.12);
+}
+
+.ctaOrb {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(188,0,251,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.ctaTitle {
+  font-size: clamp(1.75rem, 4vw, 2.5rem) !important;
+  color: #ffffff;
+}
+
+.ctaDesc {
+  color: var(--color-on-surface-variant);
+  max-width: 400px;
+}
+
+/* Form */
+.form {
+  display: flex;
+  width: 100%;
+  max-width: 460px;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.emailInput {
+  flex: 1;
+  height: 52px;
+  padding: 0 var(--space-4);
+  background: var(--color-surface-container-lowest);
+  border: none;
+  border-bottom: 2px solid var(--color-surface-container-highest);
+  color: var(--color-on-surface);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9375rem;
+  outline: none;
+  border-radius: var(--radius-md);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.emailInput::placeholder {
+  color: var(--color-on-surface-variant);
+}
+
+.emailInput:focus {
+  border-bottom-color: var(--color-primary);
+  box-shadow: 0 4px 16px rgba(224,141,255,0.1);
+}
+
+.legal {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: var(--color-on-surface-variant);
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form {
+    flex-direction: column;
+  }
+
+  .emailInput {
+    width: 100%;
+  }
+
+  .ctaBox {
+    padding: var(--space-6);
+  }
+}

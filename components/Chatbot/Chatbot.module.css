@@ -1,0 +1,114 @@
+.wrapper {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 10000; /* Above navbar if needed */
+}
+
+.fab {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  /* Gradient simulates light from the right */
+  background: linear-gradient(to left, #ff8c00, var(--color-primary));
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Stronger orange glow */
+  box-shadow: 0 10px 30px rgba(255, 140, 0, 0.4), 0 0 20px rgba(255, 140, 0, 0.2);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  position: relative;
+}
+
+.fab::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.fab:hover {
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0 15px 40px rgba(255, 140, 0, 0.6), 0 0 30px rgba(255, 140, 0, 0.3);
+}
+
+.window {
+  width: 320px;
+  background: #1a1a1a;
+  border: 1px solid rgba(224, 141, 255, 0.2);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+}
+
+.header {
+  padding: 1rem 1.5rem;
+  background: rgba(224, 141, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header h3 {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--color-primary);
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.body {
+  padding: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input, .textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+}
+
+.thanks {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.thanks p:first-child {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .window {
+    width: calc(100vw - 4rem);
+  }
+}

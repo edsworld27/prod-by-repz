@@ -1,0 +1,272 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Move to top */
+  background: #101010 url('/hero-bg.png') no-repeat right bottom;
+  background-size: min(800px, 100%) auto;
+  overflow: hidden;
+  padding-top: 175px; 
+}
+
+@media (min-width: 1440px) {
+  .hero {
+    background-size: contain;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    background-size: cover;
+    background-position: center bottom;
+  }
+}
+
+/* Background Grid */
+.grid {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+/* Background glow orbs - minimized */
+.orb1 {
+  display: none;
+}
+
+.orb2 {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  bottom: -200px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(188, 0, 251, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Content */
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align to the left */
+  text-align: left; /* Text aligned left */
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  background: rgba(224, 141, 255, 0.08);
+  border: 1px solid rgba(224, 141, 255, 0.2);
+  border-radius: 9999px;
+  margin-bottom: var(--space-6);
+  width: fit-content;
+  color: var(--color-primary);
+}
+
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 8px var(--color-primary);
+  animation: pulseGlow 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* Headline Box */
+.headline {
+  opacity: 0;
+  margin-bottom: var(--space-6);
+  width: 100%;
+  max-width: 1000px;
+}
+
+.line1 {
+  color: rgba(255, 255, 255, 0.75);
+  font-style: normal;
+}
+
+.line2 {
+  display: inline-block;
+}
+
+.line3 {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Subtext Box */
+.sub {
+  opacity: 0;
+  color: var(--color-on-surface-variant);
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: var(--space-8);
+  font-size: 1.0625rem;
+}
+
+/* CTAs Box */
+.ctas {
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-10);
+  margin-top: 8px;
+}
+
+/* Social Proof */
+.proof {
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.proofAvatars {
+  display: flex;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-secondary-container), var(--color-primary-dim));
+  border: 2px solid var(--color-surface-container-lowest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: #fff;
+  margin-left: -8px;
+  position: relative;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+/* Mini stat cards */
+.miniCards {
+  opacity: 0;
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.miniCard {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-3) var(--space-5);
+  background: rgba(25, 25, 25, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(224,141,255,0.1);
+  border-radius: var(--radius-lg);
+  gap: 2px;
+}
+
+.miniValue {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.miniLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  color: var(--color-on-surface-variant);
+  white-space: nowrap;
+}
+.ticker {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  border-top: 1px solid rgba(224, 141, 255, 0.08);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.875rem 0;
+  margin-top: auto;
+}
+
+.tickerTrack {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: marquee 30s linear infinite;
+  width: max-content;
+}
+
+.tickerItem {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant);
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+
+.tickerDot {
+  color: var(--color-primary);
+  font-size: 0.5rem;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 8px var(--color-primary); }
+  50% { box-shadow: 0 0 20px var(--color-primary), 0 0 40px rgba(224,141,255,0.3); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 140px;
+    background-size: 120% auto;
+    background-position: right 80%;
+  }
+
+  .content {
+    padding-top: var(--space-4);
+  }
+
+  .headline {
+    margin-bottom: var(--space-4);
+  }
+
+  .sub {
+    font-size: 1rem;
+    margin-bottom: var(--space-6);
+  }
+
+  .ctas {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+
+  .ctas .btn {
+    width: 100%;
+  }
+}

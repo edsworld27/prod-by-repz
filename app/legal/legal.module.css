@@ -1,0 +1,48 @@
+.main {
+  min-height: 100vh;
+  padding-top: var(--space-32);
+  background: var(--color-surface-container-lowest);
+  padding-bottom: var(--space-20);
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heading {
+  margin-bottom: var(--space-8);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.prose {
+  color: var(--color-on-surface-variant);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.8;
+  font-size: 1.125rem;
+}
+
+.prose h2 {
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
+  font-size: 1.75rem;
+}
+
+.prose p {
+  margin-bottom: var(--space-4);
+}
+
+.prose ul, .prose ol {
+  margin-bottom: var(--space-6);
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin-bottom: var(--space-2);
+}
+
+.prose strong {
+  color: #fff;
+}

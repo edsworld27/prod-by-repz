@@ -1,0 +1,217 @@
+.stickyContainer {
+  height: 600vh; 
+  position: relative;
+}
+
+.stickyElement {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--color-surface-container-lowest);
+  transition: background-color 0.8s ease;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  background: #101010 url('/hero-bg.png') no-repeat center center;
+  background-size: cover;
+  z-index: 1;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65); 
+  z-index: 2;
+  pointer-events: none;
+}
+
+.problemGlow {
+  background: transparent; /* Black state for the Problem section */
+}
+
+.solutionGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  filter: blur(60px);
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: glowBreathe 10s ease-in-out infinite;
+  background: radial-gradient(
+    circle at center, 
+    transparent 10%, 
+    rgba(255, 140, 0, 0.3) 30%, 
+    rgba(188, 0, 251, 0.25) 50%, 
+    transparent 75%
+  );
+}
+
+.bigBang {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    #ffffff 0%,
+    #ff8c00 30%,
+    #bc00fb 60%,
+    transparent 100%
+  );
+  filter: blur(2px) contrast(1.5) brightness(1.2);
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease;
+}
+
+@keyframes glowBreathe {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+}
+
+.contentLayer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  justify-content: center; /* Center problem/solution by default */
+  align-items: center; 
+  z-index: 2;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  padding: 0 1.5rem; 
+  pointer-events: none;
+  scroll-margin-top: 120px;
+}
+
+.heroLayer {
+  justify-content: flex-start !important; /* Keep Hero pinned to top on desktop */
+  padding-top: 175px !important;
+}
+
+/* Cinematic reveal shift */
+.contentLayer[style*="opacity: 0"] {
+  transform: translateY(40px) scale(0.98);
+}
+
+.contentLayer[style*="opacity: 1"] {
+  transform: translateY(0) scale(1);
+}
+
+.heroLayout {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  width: 100%;
+}
+
+.heroLayout h1, .storeTeaser h2 {
+  transition: letter-spacing 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.heroCtas {
+  margin-top: calc(3rem + 8px); 
+  display: flex;
+  gap: 1.5rem;
+}
+
+.glowTextOrange {
+  background: linear-gradient(135deg, #ff8c00 0%, #ff4500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 10px rgba(255, 69, 0, 0.3));
+}
+
+.storeTeaser {
+  text-align: center;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .stickyContainer {
+    height: 600vh !important; /* Extended for cinematic sequence */
+  }
+
+  .stickyElement {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--color-surface-container-lowest);
+  }
+  
+  .background {
+    position: absolute;
+    transform: scale(1);
+    background-image: none; /* Hide desktop background on mobile per request */
+    background-color: #101010;
+  }
+  
+  .contentLayer {
+    position: absolute;
+    inset: 0;
+    padding: 0 1.5rem; /* Reset to base centering */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: 
+      opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+      transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform, opacity;
+  }
+
+  .heroLayer {
+    padding-top: 80px !important; /* Only Hero needs to clear the nav bar */
+  }
+
+  /* Force opacity 1 only for the active layer controlled by JS, not !important override */
+  /* This allows the page.tsx logic to drive the animations on mobile too */
+
+  .heroLayout {
+    align-items: center;
+    text-align: center;
+  }
+
+  .heroLayout h1 {
+    font-size: clamp(2.25rem, 10vw, 3.5rem);
+  }
+
+  .heroCtas {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2rem;
+    gap: var(--space-3);
+  }
+
+  .heroCtas a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .glowTextOrange {
+    font-size: 110%; /* Pop the orange text slightly more on mobile */
+  }
+}

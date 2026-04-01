@@ -1,0 +1,190 @@
+/* Beat Card */
+.card {
+  padding: var(--space-5);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  border-color: rgba(224, 141, 255, 0.3);
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(188, 0, 251, 0.1);
+}
+
+.cardActive {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 40px rgba(188, 0, 251, 0.2), inset 0 0 40px rgba(224,141,255,0.02) !important;
+  animation: cardPulse 4s ease-in-out infinite;
+}
+
+@keyframes cardPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(188, 0, 251, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(188, 0, 251, 0.3); }
+}
+
+/* Top Row */
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+/* Play Button */
+.playBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-surface-container-highest);
+  border: 1px solid rgba(224,141,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-on-surface-variant);
+  flex-shrink: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.playBtn:hover {
+  background: rgba(224,141,255,0.1);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(224,141,255,0.2);
+}
+
+.playBtnActive {
+  background: var(--color-primary-dim) !important;
+  color: #ffffff !important;
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 30px rgba(188,0,251,0.4) !important;
+}
+
+/* Info */
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  color: #ffffff;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 2px;
+}
+
+.duration {
+  flex-shrink: 0;
+}
+
+/* Waveform */
+.waveform {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 40px;
+  margin-bottom: var(--space-3);
+}
+
+.waveBar {
+  flex: 1;
+  min-width: 2px;
+  max-width: 4px;
+  border-radius: 1px;
+  background: var(--color-surface-container-highest);
+  transition: background 0.1s ease, box-shadow 0.1s ease;
+}
+
+.cardActive .waveBar {
+  animation: waveBarDance 0.8s ease-in-out infinite alternate;
+}
+
+.cardActive .waveBar:nth-child(3n) { animation-duration: 0.6s; }
+.cardActive .waveBar:nth-child(3n+1) { animation-duration: 0.9s; }
+.cardActive .waveBar:nth-child(3n+2) { animation-duration: 0.7s; }
+
+.waveBarPlayed {
+  background: linear-gradient(to top, var(--color-primary-dim), var(--color-primary)) !important;
+  box-shadow: 0 0 4px rgba(224,141,255,0.4);
+}
+
+@keyframes waveBarDance {
+  0% { transform: scaleY(0.4); }
+  100% { transform: scaleY(1.0); }
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.06rem;
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2px 7px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Pricing */
+.pricing {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.priceGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.priceLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant);
+}
+
+.price {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.priceExclusive {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.priceDivider {
+  width: 1px;
+  height: 28px;
+  background: rgba(255,255,255,0.08);
+}
+
+.buyBtn {
+  margin-left: auto;
+  flex-shrink: 0;
+}
