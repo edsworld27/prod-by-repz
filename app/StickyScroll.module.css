@@ -128,7 +128,7 @@
 }
 
 .heroCtas {
-  margin-top: calc(3rem + 8px); 
+  margin-top: 4.5rem; 
   display: flex;
   gap: 1.5rem;
 }
@@ -202,7 +202,7 @@
   .heroCtas {
     flex-direction: column;
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 3.5rem;
     gap: var(--space-3);
   }
 

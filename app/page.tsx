@@ -96,7 +96,7 @@ export default function Home() {
                     <p className="text-body" style={{maxWidth: "700px", marginTop: "2rem", color: "var(--color-on-surface-variant)"}}>
                       Hey — I'm REPPZZ. I'm 18 and I make beats for artists who have something real to say. You're the hero of this story. I'm just here to make sure the world hears you.
                     </p>
-                    <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", justifyContent: "center" }}>
+                    <div className={styles.heroCtas} style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", justifyContent: "center" }}>
                       <Magnetic>
                         <a href="#beats" className="btn btn-primary btn-lg">
                           Explore the Shop ✦
